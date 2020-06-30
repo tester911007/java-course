@@ -2,10 +2,10 @@ package edu.javacourse.studentorder.validator;
 
 import edu.javacourse.studentorder.domain.Child;
 import edu.javacourse.studentorder.domain.Person;
-import edu.javacourse.studentorder.domain.StudentOrder;
 import edu.javacourse.studentorder.domain.register.AnswerCityRegister;
 import edu.javacourse.studentorder.domain.register.AnswerCityRegisterItem;
 import edu.javacourse.studentorder.domain.register.CityRegisterResponse;
+import edu.javacourse.studentorder.domain.StudentOrder;
 import edu.javacourse.studentorder.exception.CityRegisterException;
 import edu.javacourse.studentorder.exception.TransportException;
 import edu.javacourse.studentorder.validator.register.CityRegisterChecker;
@@ -39,7 +39,7 @@ public class CityRegisterValidator
 
         try {
             CityRegisterResponse tmp = personChecker.checkPerson(person);
-            status = tmp.isExisting() ?
+            status = tmp.isRegistered() ?
                     AnswerCityRegisterItem.CityStatus.YES :
                     AnswerCityRegisterItem.CityStatus.NO;
         } catch (CityRegisterException ex) {

@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>student-project</artifactId>
+    <groupId>edu.javacourse</groupId>
+    <artifactId>student-order</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <slf4j.version>1.7.30</slf4j.version>
-        <log4j.version>2.13.3</log4j.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <log4j.version>2.11.1</log4j.version>
         <jersey.version>2.28</jersey.version>
         <jaxb.version>2.3.1</jaxb.version>
     </properties>
@@ -27,19 +27,16 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-simple</artifactId>-->
-<!--            <version>${slf4j.version}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-
+        <!--<dependency>-->
+        <!--<groupId>org.slf4j</groupId>-->
+        <!--<artifactId>slf4j-simple</artifactId>-->
+        <!--<version>${slf4j.version}</version>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -73,7 +70,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>RELEASE</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

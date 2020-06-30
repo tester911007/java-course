@@ -5,11 +5,11 @@ public class CityRegisterResponse
     private boolean registered;
     private boolean temporal;
 
-    public boolean isExisting() {
+    public boolean isRegistered() {
         return registered;
     }
 
-    public void setExisting(boolean registered) {
+    public void setRegistered(boolean registered) {
         this.registered = registered;
     }
 
@@ -17,14 +17,14 @@ public class CityRegisterResponse
         return temporal;
     }
 
-    public void setTemporal(Boolean temporal) {
+    public void setTemporal(boolean temporal) {
         this.temporal = temporal;
     }
 
     @Override
     public String toString() {
         return "CityRegisterResponse{" +
-                "existing=" + registered +
+                "registered=" + registered +
                 ", temporal=" + temporal +
                 '}';
     }
