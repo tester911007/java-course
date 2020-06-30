@@ -1,19 +1,37 @@
-package edu.javacourse.city.domain;
+package edu.javacourse.studentorder.domain.register;
+
+import edu.javacourse.studentorder.domain.Address;
+import edu.javacourse.studentorder.domain.Person;
+import edu.javacourse.studentorder.util.LocalDateAdapter;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
-public class PersonRequest
-{
+public class CityRegisterRequest {
     private String surName;
     private String givenName;
     private String patronymic;
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDate dateOfBirth;
-    private Integer streetCode;
+    private Long streetCode;
     private String building;
     private String extension;
     private String apartment;
+
+    public CityRegisterRequest() {
+    }
+
+    public CityRegisterRequest(Person person) {
+        surName = person.getSurName();
+        givenName = person.getGivenName();
+        patronymic = person.getPatronymic();
+        dateOfBirth = person.getDateOfBirth();
+        Address adr = person.getAddress();
+        streetCode = adr.getStreet().getStreetCode();
+        building = adr.getBuilding();
+        extension = adr.getExtension();
+        apartment = adr.getApartment();
+    }
 
     public String getSurName() {
         return surName;
@@ -47,11 +65,11 @@ public class PersonRequest
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Integer getStreetCode() {
+    public Long getStreetCode() {
         return streetCode;
     }
 
-    public void setStreetCode(Integer streetCode) {
+    public void setStreetCode(Long streetCode) {
         this.streetCode = streetCode;
     }
 
@@ -81,7 +99,7 @@ public class PersonRequest
 
     @Override
     public String toString() {
-        return "PersonRequest{" +
+        return "CityRegisterRequest{" +
                 "surName='" + surName + '\'' +
                 ", givenName='" + givenName + '\'' +
                 ", patronymic='" + patronymic + '\'' +
