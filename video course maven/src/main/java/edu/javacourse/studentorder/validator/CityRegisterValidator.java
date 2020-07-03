@@ -7,12 +7,10 @@ import edu.javacourse.studentorder.domain.register.AnswerCityRegisterItem;
 import edu.javacourse.studentorder.domain.register.CityRegisterResponse;
 import edu.javacourse.studentorder.domain.StudentOrder;
 import edu.javacourse.studentorder.exception.CityRegisterException;
-import edu.javacourse.studentorder.exception.TransportException;
 import edu.javacourse.studentorder.validator.register.CityRegisterChecker;
 import edu.javacourse.studentorder.validator.register.RealCityRegisterChecker;
 
-public class CityRegisterValidator
-{
+public class CityRegisterValidator {
     public static final String IN_CODE = "NO_GRN";
 
     private CityRegisterChecker personChecker;
@@ -46,10 +44,6 @@ public class CityRegisterValidator
             ex.printStackTrace(System.out);
             status = AnswerCityRegisterItem.CityStatus.ERROR;
             error = new AnswerCityRegisterItem.CityError(ex.getCode(), ex.getMessage());
-        } catch (TransportException ex) {
-            ex.printStackTrace(System.out);
-            status = AnswerCityRegisterItem.CityStatus.ERROR;
-            error = new AnswerCityRegisterItem.CityError(IN_CODE, ex.getMessage());
         } catch (Exception ex) {
             ex.printStackTrace(System.out);
             status = AnswerCityRegisterItem.CityStatus.ERROR;
