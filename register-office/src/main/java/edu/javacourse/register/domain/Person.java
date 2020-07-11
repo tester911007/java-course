@@ -1,18 +1,27 @@
 package edu.javacourse.register.domain;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
 
+@Table(name = "ro_person")
 @Entity
-@Table(name="person")
 public class Person {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    @Column(name="person_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "person_id")
     private Long personId;
-    @Column(name="first_name")
+    @Column(name = "first_name")
     private String firstName;
-    @Column(name="last_name")
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "patronymic")
+    private String patronymic;
+    @Column(name = "date_birth")
+    private LocalDate dateOfBirth;
+    @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY,
+            mappedBy = "person")
+    private List<Passport> passportList;
 
     public Long getPersonId() {
         return personId;
@@ -38,12 +47,27 @@ public class Person {
         this.lastName = lastName;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "personId=" + personId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+    public String getPatronymic() {
+        return patronymic;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public List<Passport> getPassportList() {
+        return passportList;
+    }
+
+    public void setPassportList(List<Passport> passportList) {
+        this.passportList = passportList;
     }
 }
