@@ -3,7 +3,7 @@ package edu.javacourse.register.domain;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Table
+@Table(name="ro_passport")
 @Entity
 public class Passport {
     @Id
